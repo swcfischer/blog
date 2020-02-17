@@ -44,9 +44,10 @@ export const BlogContainer = styled.div`
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
     a {
-      display: flex;
+      display: inline;
       justify-content: center;
       width: 100%;
+      color: #1b4d67;
     }
   }
 
