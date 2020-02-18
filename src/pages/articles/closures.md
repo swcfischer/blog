@@ -69,7 +69,7 @@ This example is going to use a text input. In React a text input can be controll
 
 If you have many text fields, you will want to re-use the logic. Here is a clever bit of code that allows you to write a re-usuable handler.
 
-```javascript
+```jsx
 handleChange = event => {
   const { name, value } = event.target
 
@@ -81,7 +81,7 @@ handleChange = event => {
 
 There are times, however, when you will want to include even more information. Here is one way to do that.
 
-```javascript
+```jsx
 handleChange = isChangeable => event => {
   if (isChangeable) {
     const { name, value } = event.target
@@ -95,7 +95,7 @@ handleChange = isChangeable => event => {
 
 The above code is taking advantage of the closures. You will call the function in your render method like so.
 
-```javascript
+```jsx
 
   render() {
     return (
