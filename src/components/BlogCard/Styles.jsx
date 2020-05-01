@@ -65,11 +65,12 @@ export const HeaderContainer = styled.h1`
   margin-top: 10px;
   padding: 5px;
   align-self: center;
-  font-size: 50px;
+  font-size: 36px;
   font-style: italic;
   color: goldenrod;
   @media (max-width: 520px) {
     margin-top: 30px;
+    font-size: 30px;
   }
 `
 

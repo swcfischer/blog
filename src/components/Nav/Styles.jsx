@@ -142,7 +142,7 @@ export const NavBar = styled.nav`
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 10;
   transition: 0.3s;
   background-image: linear-gradient(15deg, #263238 0%, #607d8b 100%);
@@ -177,13 +177,11 @@ export const NameContainer = styled.div`
 `
 export const Triangle = styled.div`
   transition: 0.3s;
-  border: 10px solid transparent;
-  border-right: 10px solid #263238;
   position: absolute;
-  border: 15px solid transparent;
-  border-right: 13px solid #263238;
+  border: 12px solid transparent;
+  border-right: 12px solid #263238;
   position: absolute;
-  top: ${props => (props.isAtTop ? '16px' : '5px')};
+  top: ${props => (props.isAtTop ? '19px' : '8px')};
   left: ${props => (props.isAtTop ? '-47px' : '-35px')};
   transform: ${props => (props.isAtTop ? 'scale(3.25)' : 'scale(2.25)')};
   @media (max-width: 1100px) {

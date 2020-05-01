@@ -67,7 +67,7 @@ export default class Nav extends Component {
               </Link>
             </ShrunkenMenuLink>
             <ShrunkenMenuLink isClicked={this.state.isClicked} order={2}>
-              <a href="https://stevefischer.me/">Portfolio</a>
+              <a href="https://stevefischer.dev/">Portfolio</a>
             </ShrunkenMenuLink>
             <ShrunkenMenuLink isClicked={this.state.isClicked} order={3}>
               <a
@@ -97,7 +97,7 @@ export default class Nav extends Component {
                 </Link>
               </li>
               <li>
-                <a href="https://stevefischer.me/">Portfolio</a>
+                <a href="https://stevefischer.dev/">Portfolio</a>
               </li>
               <li>
                 <a
@@ -111,7 +111,7 @@ export default class Nav extends Component {
             </NavLinkContainer>
             <NameContainer isAtTop={this.state.isAtTop}>
               <Triangle isAtTop={this.state.isAtTop} />
-              <a href="https://stevefischer.me">Steve Fischer</a>
+              <a href="https://stevefischer.dev">Steve Fischer</a>
             </NameContainer>
           </ParentContainer>
         </NavBar>

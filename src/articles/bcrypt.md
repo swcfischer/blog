@@ -58,4 +58,4 @@ bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
 })
 ```
 
-[A great article that explains the utility of Bcrypt in laymans terms](https://codahale.com/how-to-safely-store-a-password/ 'Coda Hale')
+[A great article that explains the utility of Bcrypt in layman's terms](https://codahale.com/how-to-safely-store-a-password/ 'Coda Hale')

@@ -23,8 +23,8 @@ export const LinkContainer = styled.div`
 export const IconImage = styled.img`
   position: relative;
   top: 2px;
-  width: 15px;
-  height: 18px;
+  width: 25px;
+  height: 28px;
   transform: ${props => (props.left ? `rotate(180deg)` : 'none')};
   left: ${props => (props.left ? -4 : 4)}px;
 
@@ -46,22 +46,32 @@ export const BlogContainer = styled.div`
     a {
       display: inline;
       justify-content: center;
-      width: 100%;
       color: #1b4d67;
     }
   }
 
   h1 {
     text-align: center;
+    color: #1f2325;
+  }
+
+  h2 {
+    color: #1f2325;
+  }
+
+  hr {
+    border-color: rgb(38, 50, 56);
   }
 `
 export const Header = styled.h1`
-  font-size: 50px;
+  font-size: 34px;
   font-style: italic;
   font-weight: 100;
   text-align: center;
   font-family: Merriweather, serif;
+  letter-spacing: 2px;
   padding: 0;
+  text-transform: capitalize;
   margin: 40px auto 75px auto;
   max-width: 750px;
   font-weight: bold;
@@ -90,4 +100,5 @@ export const AvatarContainer = styled.div`
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: #c4c7cc 0px 0px 2px;
 `

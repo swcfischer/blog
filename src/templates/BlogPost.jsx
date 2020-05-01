@@ -11,91 +11,108 @@ import {
   AvatarContainer,
   BlogContainer,
 } from './Styles.jsx'
+import ReactTooltip from 'react-tooltip'
 
-export default class BlogPost extends React.Component {
-  render() {
-    const {
-      rightLink,
-      leftLink,
-      leftLinkTitle,
-      rightLinkTitle,
-    } = this.props.pageContext
+const BlogPost = props => {
+  const {
+    rightLink,
+    leftLink,
+    leftLinkTitle,
+    rightLinkTitle,
+  } = props.pageContext
 
-    const post = this.props.data.markdownRemark
-    const {
-      html,
-      frontmatter: { title, author },
-    } = post
+  const post = props.data.markdownRemark
+  const {
+    html,
+    frontmatter: { title, author },
+  } = post
 
-    return (
-      <Layout>
-        <LinkContainer>
-          {leftLink ? (
-            <Link to={leftLink}>
+  return (
+    <Layout>
+      <LinkContainer>
+        {leftLink ? (
+          <Link to={leftLink}>
+            <a data-tip data-for="leftIcon">
               <IconImage
                 left
                 src="/angle-double-right-solid.svg"
                 alt="navigate to previous article"
               />
+            </a>
+            <ReactTooltip effect="solid" id="leftIcon">
               {leftLinkTitle}
-            </Link>
-          ) : (
-            <div />
-          )}
-          {rightLink ? (
-            <Link to={rightLink}>
-              {rightLinkTitle}
+            </ReactTooltip>
+          </Link>
+        ) : (
+          <div />
+        )}
+        {rightLink ? (
+          <Link to={rightLink}>
+            <a data-tip data-for="rightIcon">
               <IconImage
                 left={false}
                 src="/angle-double-right-solid.svg"
                 alt="navigate to next article"
               />
-            </Link>
-          ) : (
-            <div />
-          )}
-        </LinkContainer>
-
-        <div>
-          <Header>{title}</Header>
-          <Attribution>
-            <strong>By: </strong>
-            {author}
-          </Attribution>
-          <AvatarContainer>
-            <Img fixed={this.props.data.file.childImageSharp.fixed} />
-          </AvatarContainer>
-          <BlogContainer dangerouslySetInnerHTML={{ __html: html }} />
-        </div>
-        <LinkContainer>
-          {leftLink ? (
-            <Link to={leftLink}>
-              <IconImage left src="/angle-double-right-solid.svg" alt="" />
-              {leftLinkTitle}
-            </Link>
-          ) : (
-            <div />
-          )}
-          {rightLink ? (
-            <Link
-              style={{ textDecoration: 'none', float: 'right' }}
-              to={rightLink}
-            >
+            </a>
+            <ReactTooltip effect="solid" id="rightIcon">
               {rightLinkTitle}
+            </ReactTooltip>
+          </Link>
+        ) : (
+          <div />
+        )}
+      </LinkContainer>
+
+      <div>
+        <Header>{title}</Header>
+        <Attribution>
+          <strong>By: </strong>
+          {author}
+        </Attribution>
+        <AvatarContainer>
+          <Img fixed={props.data.file.childImageSharp.fixed} />
+        </AvatarContainer>
+        <BlogContainer dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+      <LinkContainer>
+        {leftLink ? (
+          <Link to={leftLink}>
+            <a data-tip data-for="leftBottomLink">
+              <IconImage left src="/angle-double-right-solid.svg" alt="" />
+            </a>
+            <ReactTooltip effect="solid" id="leftBottomLink">
+              {leftLinkTitle}
+            </ReactTooltip>
+          </Link>
+        ) : (
+          <div />
+        )}
+        {rightLink ? (
+          <Link
+            style={{ textDecoration: 'none', float: 'right' }}
+            to={rightLink}
+          >
+            <a data-tip data-for="rightBottomLink">
               <IconImage
                 left={false}
                 src="/angle-double-right-solid.svg"
                 alt=""
               />
-            </Link>
-          ) : (
-            <div />
-          )}
-        </LinkContainer>
-      </Layout>
-    )
-  }
+            </a>
+            <ReactTooltip id="rightBottomLink" effect="solid">
+              {rightLinkTitle}
+            </ReactTooltip>
+          </Link>
+        ) : (
+          <div />
+        )}
+      </LinkContainer>
+    </Layout>
+  )
 }
+
+export default BlogPost
 
 export const query = graphql`
   query($slug: String!) {

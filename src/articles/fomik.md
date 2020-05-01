@@ -61,7 +61,71 @@ Notice that you do not use `useState` or `this.setState`. Formik has its own sta
 
 Right now you don't quite see the utility of Formik. It's called building suspense :) .
 
-So let's turn it up a bit. This next example we will have validation that will run after the user clicks off the form element &#151 that is, touches it &#151 which is the vocabulary Formik uses.
+So let's turn it up a bit. This next example we will have error messages that will show after the user clicks off the form element &#151 that is, touches it &#151 which is the vocabulary Formik uses.
 
 ```jsx
+<form onSubmit={formik.handleSubmit}>
+  <label htmlFor="firstName">First Name</label>
+  <input
+    id="firstName"
+    name="firstName"
+    type="text"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.firstName}
+  />
+  // Notice the conditional rendering of the error message
+  {formik.touched.firstName && formik.errors.firstName && (
+    <div>{formik.errors.firstName}</div>
+  )}
+  <label htmlFor="lastName">Last Name</label>
+  <input
+    id="lastName"
+    name="lastName"
+    type="text"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.lastName}
+  />
+  // Notice the conditional rendering of the error message
+  {formik.touched.lastName && formik.errors.lastName && (
+    <div>{formik.errors.lastName}</div>
+  )}
+  <label htmlFor="email">Email Address</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.email}
+  />
+  // Notice the conditional rendering of the error message
+  {formik.touched.email && formik.errors.email && (
+    <div>{formik.errors.email}</div>
+  )}
+  <button type="submit">Submit</button>
+</form>
 ```
+
+The final &#151 and possibly the most enticing feature of Formik &#151 is the easy validation that can be done use a small, sleek schema validation library called Yup.
+
+Inside the the `useFormik` hook, you define a property like so:
+
+```jsx
+ validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      lastName: Yup.string()
+        .max(20, 'Must be 20 characters or less')
+        .required('Required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .required('Required'),
+    }),
+```
+
+The text passed in will result in the error messages that show inside your component.
+
+Slick, huh!
