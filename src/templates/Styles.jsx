@@ -38,8 +38,19 @@ export const BlogContainer = styled.div`
   max-width: 750px;
   margin: 0 auto;
   color: #000;
+  p:first-of-type {
+    .dropcap {
+      color: #263238;
+      float: left;
+      font-size: 5rem;
+      line-height: 3rem;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  }
+
   p {
-    line-height: 25px;
+    line-height: 32px;
     font-size: 17px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
@@ -48,19 +59,34 @@ export const BlogContainer = styled.div`
       justify-content: center;
       color: #1b4d67;
     }
+
+    .invisible {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      top: auto;
+      white-space: nowrap;
+      width: 1px;
+    }
   }
 
   h1 {
-    text-align: center;
     color: #1f2325;
+    text-align: center;
+    border-bottom: 2px solid rgb(38, 50, 56);
+    padding-bottom: 5px;
+    margin: 45px 0;
   }
 
   h2 {
     color: #1f2325;
+    border-bottom: 2px solid rgb(38, 50, 56);
+    padding-bottom: 5px;
+    margin: 45px 0;
   }
 
   hr {
-    border-color: rgb(38, 50, 56);
   }
 `
 export const Header = styled.h1`

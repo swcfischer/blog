@@ -6,13 +6,11 @@ author: Steve Fischer
 tags: ['Frontend', 'React']
 ---
 
-In the world of Javascript &#151 and more precisely, React &#151 one form library has shown itself to do be straightforward and forward-thinking.
+In the world of Javascript &#151 and more precisely, React &#151 one form library has shown itself to be straightforward and forward-thinking.
 
 Forms have come a long way since Web 1.0. There is a lot of leeway when it comes to forms &#151 forms used to have a prop on the html tag of **action**, which would point to the endpoint whereby the form contents would be recieved.
 
 ## Nowadays, forms are much more than that.
-
----
 
 Forms have datepickers, phone numbers, dropdowns, addresses and all sorts of other fun, zaney interactive elements that require extra care from the developer.
 
@@ -21,8 +19,6 @@ And that's exactly why there was a need for this library &#151 due to the un-sta
 I've used this library in several projects already and it is quickly becoming industry standard.
 
 ##Next, I will _show_ you how to do a simple form in formik.
-
----
 
 Like I said, Formik is forward-thinking, so the library uses React hooks.
 

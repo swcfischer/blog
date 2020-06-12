@@ -20,6 +20,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
           },
+          { resolve: 'gatsby-remark-dropcap' },
         ],
       },
     },
@@ -51,6 +52,7 @@ module.exports = {
         // Add any options here
       },
     },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

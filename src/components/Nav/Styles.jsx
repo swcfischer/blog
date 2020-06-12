@@ -4,11 +4,11 @@ export const ParentContainer = styled.div`
   display: flex;
   align-items: center;
   transition: 0.3s;
-  height: ${props => (props.isAtTop ? '63px' : '40px')};
+  overflow: visible;
+  height: ${props => (props.isAtTop ? '63px' : '44px')};
   @media (max-width: 740px) {
     justify-content: space-between;
   }
-  overflow: visible;
 `
 
 export const NavLinkContainer = styled.ul`
@@ -154,7 +154,6 @@ export const NavBar = styled.nav`
 `
 
 export const NameContainer = styled.div`
-  padding-right: 10px;
   background: linear-gradient(to right, #263238 0%, #607d8b 100%);
   transition: 0.3s;
   font-size: ${props => (props.isAtTop ? '50px' : '35px')};
@@ -165,6 +164,8 @@ export const NameContainer = styled.div`
   top: 0;
   right: 0;
   border-bottom: 3px solid #000;
+  padding-left: 10px;
+  padding-right: 30px;
 
   a {
     position: relative;
@@ -181,8 +182,8 @@ export const Triangle = styled.div`
   border: 12px solid transparent;
   border-right: 12px solid #263238;
   position: absolute;
-  top: ${props => (props.isAtTop ? '19px' : '8px')};
-  left: ${props => (props.isAtTop ? '-47px' : '-35px')};
+  top: ${props => (props.isAtTop ? '19px' : '11px')};
+  left: ${props => (props.isAtTop ? '-47px' : '-38px')};
   transform: ${props => (props.isAtTop ? 'scale(3.25)' : 'scale(2.25)')};
   @media (max-width: 1100px) {
     display: none;

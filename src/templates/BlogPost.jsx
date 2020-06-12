@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import ReactTooltip from 'react-tooltip'
+
 import {
   LinkContainer,
   IconImage,
@@ -11,7 +13,6 @@ import {
   AvatarContainer,
   BlogContainer,
 } from './Styles.jsx'
-import ReactTooltip from 'react-tooltip'
 
 const BlogPost = props => {
   const {
@@ -22,6 +23,7 @@ const BlogPost = props => {
   } = props.pageContext
 
   const post = props.data.markdownRemark
+
   const {
     html,
     frontmatter: { title, author },
