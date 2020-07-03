@@ -49,6 +49,12 @@ export const BlogContainer = styled.div`
     }
   }
 
+  p > strong > em {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+  }
+
   p {
     line-height: 32px;
     font-size: 17px;
@@ -61,6 +67,7 @@ export const BlogContainer = styled.div`
     }
 
     .invisible {
+      display: none;
       clip: rect(1px, 1px, 1px, 1px);
       height: 1px;
       overflow: hidden;

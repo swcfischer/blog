@@ -1,6 +1,6 @@
 ---
 title: 'Closures in React'
-date: '2019-08-14'
+date: '2020-02-17'
 description: 'A closure is a Javascript concept that makes life much easier when you know how to use it!'
 author: Steve Fischer
 tags: ['Frontend', 'React']

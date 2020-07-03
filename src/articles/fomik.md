@@ -1,6 +1,6 @@
 ---
 title: 'Formik, the formula for forms'
-date: '2020-02-17'
+date: '2020-06-29'
 description: 'Formik is a form library for React that is meant to simplify form state management and validation.'
 author: Steve Fischer
 tags: ['Frontend', 'React']
