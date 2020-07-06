@@ -1,12 +1,26 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
 
 export const LinkContainer = styled.div`
+  opacity: 0;
   display: flex;
   padding: 35px 10px 10px 10px;
   justify-content: space-between;
   font-size: 20px;
   font-weight: 100;
   border: 2px solid transparent;
+  animation: ${fadeIn} 2s linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 
   a {
     color: #000;
