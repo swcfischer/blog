@@ -11,16 +11,26 @@ const fadeIn = keyframes`
 `
 
 export const LinkContainer = styled.div`
-  opacity: 0;
-  display: flex;
   padding: 35px 10px 10px 10px;
-  justify-content: space-between;
   font-size: 20px;
   font-weight: 100;
   border: 2px solid transparent;
-  animation: ${fadeIn} 2s linear;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
+  width: 100%;
+
+  .left-link {
+    float: left;
+  }
+
+  .right-link {
+    float: right;
+  }
+
+  .__react_component_tooltip:not(.show) {
+    opacity: 0;
+    animation: ${fadeIn} 0.25s linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
 
   a {
     color: #000;
@@ -34,13 +44,25 @@ export const LinkContainer = styled.div`
   }
 `
 
-export const IconImage = styled.img`
+export const RightIconImage = styled.img`
   position: relative;
   top: 2px;
   width: 25px;
   height: 28px;
-  transform: ${props => (props.left ? `rotate(180deg)` : 'none')};
-  left: ${props => (props.left ? -4 : 4)}px;
+  transform: none;
+  left: 4px;
+
+  @media (max-width: 740px) {
+    top: 4px;
+  }
+`
+export const LeftIconImage = styled.img`
+  position: relative;
+  top: 2px;
+  width: 25px;
+  height: 28px;
+  transform: rotate(180deg);
+  left: -4px;
 
   @media (max-width: 740px) {
     top: 4px;
@@ -56,7 +78,7 @@ export const BlogContainer = styled.div`
     .dropcap {
       color: #263238;
       float: left;
-      font-size: 5rem;
+      font-size: 4.5rem;
       line-height: 3rem;
       margin: 0;
       padding: 0.5rem;
@@ -70,8 +92,8 @@ export const BlogContainer = styled.div`
   }
 
   p {
-    line-height: 32px;
-    font-size: 17px;
+    line-height: 28px;
+    font-size: 15px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
     a {

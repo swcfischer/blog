@@ -8,9 +8,9 @@ tags: ['Stripe', 'Node.js', 'React']
 
 In today’s article I am going to share how to do a simple payment through Stripe, a rather popular online payment processor.
 
-In today’s day an age, anyone can open up a storefront. We are all online, especially now.
+In today’s day and age, anyone can open up a storefront. We are all online, especially now.
 
-I heard an interesting phrase on a podcast that I think is worth sharing, “Bricks to clicks.”
+I heard an interesting phrase on a podcast that I think is worth sharing, “Bricks to clicks.” Meaning brick and mortar to websites (clicks).
 
 In short, having your own side hustle is great idea.
 
@@ -20,7 +20,7 @@ After you sign up for the Stripe API, you will start out in the test portion of 
 
 There are two ways to handle the frontend portion of a Stripe checkout. You can either send the user to a Stripe checkout and later Stripe will redirect your user back to a success or failure route.
 
-Or you can use the Stripe iframe, which is essentially loading Stripes checkout into your own yet with more configurability.
+Or you can use the Stripe iframe, which is essentially loading Stripe's checkout into your own yet with more configurability.
 
 I chose the latter, which for React is called Stripe Elements.
 
@@ -83,7 +83,7 @@ const Checkout = props => {
 
 I know there is a lot there, but I will unpack it.
 
-First, we create a stripe promise by passing our key into `loadStripe`. This promise is then passed as a prop called "stripe" to the `Elements` provider.
+First, we create a stripe promise by passing our public key into `loadStripe`. This promise is then passed as a prop called "stripe" to the `Elements` provider.
 
 When the user inputs their credit card info and clicks pay, the `onSubmit` event handler first fetches a client secret from the backend, which is done by create a payment intent and passing the resulting `client_secret`. Here is that code.
 

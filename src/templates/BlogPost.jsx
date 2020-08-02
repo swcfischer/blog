@@ -7,7 +7,8 @@ import ReactTooltip from 'react-tooltip'
 
 import {
   LinkContainer,
-  IconImage,
+  LeftIconImage,
+  RightIconImage,
   Header,
   Attribution,
   AvatarContainer,
@@ -33,10 +34,9 @@ const BlogPost = props => {
     <Layout>
       <LinkContainer>
         {leftLink ? (
-          <Link to={leftLink}>
+          <Link className="left-link" to={leftLink} style={{ float: 'left' }}>
             <a data-tip data-for="leftIcon">
-              <IconImage
-                left
+              <LeftIconImage
                 src="/angle-double-right-solid.svg"
                 alt="navigate to previous article"
               />
@@ -48,11 +48,15 @@ const BlogPost = props => {
         ) : (
           <div />
         )}
+        <div></div>
         {rightLink ? (
-          <Link to={rightLink}>
+          <Link
+            className="right-link"
+            style={{ float: 'right' }}
+            to={rightLink}
+          >
             <a data-tip data-for="rightIcon">
-              <IconImage
-                left={false}
+              <RightIconImage
                 src="/angle-double-right-solid.svg"
                 alt="navigate to next article"
               />
@@ -79,9 +83,9 @@ const BlogPost = props => {
       </div>
       <LinkContainer>
         {leftLink ? (
-          <Link to={leftLink}>
+          <Link to={leftLink} style={{ float: 'left' }} className="left-link">
             <a data-tip data-for="leftBottomLink">
-              <IconImage left src="/angle-double-right-solid.svg" alt="" />
+              <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
             </a>
             <ReactTooltip effect="solid" id="leftBottomLink">
               {leftLinkTitle}
@@ -90,17 +94,15 @@ const BlogPost = props => {
         ) : (
           <div />
         )}
+        <div></div>
         {rightLink ? (
           <Link
-            style={{ textDecoration: 'none', float: 'right' }}
             to={rightLink}
+            className="right-link"
+            style={{ float: 'right' }}
           >
             <a data-tip data-for="rightBottomLink">
-              <IconImage
-                left={false}
-                src="/angle-double-right-solid.svg"
-                alt=""
-              />
+              <RightIconImage src="/angle-double-right-solid.svg" alt="" />
             </a>
             <ReactTooltip id="rightBottomLink" effect="solid">
               {rightLinkTitle}

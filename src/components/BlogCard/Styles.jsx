@@ -55,6 +55,9 @@ export const CardContainer = styled.div`
   span:hover {
     transform: scale(1.05);
   }
+  @media (max-width: 740px) {
+    animation: none;
+  }
 `
 
 export const HeaderContainer = styled.h1`
