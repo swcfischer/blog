@@ -104,7 +104,7 @@ export const CloseButton = styled.span`
   padding: 5px;
   top: 0px;
   right: 140px;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 100;
   transform: scale(1, 0.7);
   cursor: pointer;
@@ -117,6 +117,7 @@ export const MenuIcon = styled.img`
   padding-right: 40px;
   @media (max-width: 740px) {
     display: block;
+    width: 28px;
   }
 `
 
