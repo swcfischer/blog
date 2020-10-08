@@ -92,8 +92,8 @@ export const BlogContainer = styled.div`
   }
 
   p {
-    line-height: 28px;
-    font-size: 15px;
+    line-height: 32px;
+    font-size: 18px;
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
     a {

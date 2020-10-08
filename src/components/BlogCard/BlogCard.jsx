@@ -13,8 +13,8 @@ import {
 export default function BlogCard({ node, idx }) {
   const { frontmatter, fields } = node.node
   return (
-    <CardContainer key={idx} idx={idx}>
-      <Link to={`/${fields.slug}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/${fields.slug}`} style={{ textDecoration: 'none' }}>
+      <CardContainer key={idx} idx={idx}>
         <TagsContainer>
           {frontmatter.tags.map((tag, i) => (
             <Tag key={i}>{tag}</Tag>
@@ -23,7 +23,7 @@ export default function BlogCard({ node, idx }) {
         <HeaderContainer>{frontmatter.title}</HeaderContainer>
         <DateContainer>{frontmatter.date}</DateContainer>
         <DescriptionContainer>{frontmatter.description}</DescriptionContainer>
-      </Link>
-    </CardContainer>
+      </CardContainer>
+    </Link>
   )
 }

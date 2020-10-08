@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlogCard from '../components/BlogCard/BlogCard'
-import styled from 'styled-components'
-
 import Layout from '../components/layout'
+
+import styled from 'styled-components'
 
 const BlogCardContainer = styled.div`
   margin-bottom: 30px;
