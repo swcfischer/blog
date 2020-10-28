@@ -18,10 +18,12 @@ export const LinkContainer = styled.div`
   width: 100%;
 
   .left-link {
+    margin-left: 25px;
     float: left;
   }
 
   .right-link {
+    margin-right: 25px;
     float: right;
   }
 
@@ -139,11 +141,11 @@ export const Header = styled.h1`
   text-align: center;
   font-family: Merriweather, serif;
   letter-spacing: 2px;
-  padding: 0;
   text-transform: capitalize;
   margin: 40px auto 75px auto;
   max-width: 750px;
   font-weight: bold;
+  padding: 0px 0px 5px 0px;
   border-bottom: 4px dashed goldenrod;
   @media (max-width: 760px) {
     font-size: 32px;

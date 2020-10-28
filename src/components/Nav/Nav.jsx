@@ -85,7 +85,7 @@ export default class Nav extends Component {
             <Link to="/" style={{ textDecoration: 'none' }}>
               <LogoFont isAtTop={this.state.isAtTop}>
                 <span>{'<'}</span>
-                {`Tech Blog`}
+                Tech Blog
                 <span>{'/>'}</span>
               </LogoFont>
             </Link>
