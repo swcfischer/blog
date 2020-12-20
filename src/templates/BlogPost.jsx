@@ -71,7 +71,7 @@ const BlogPost = props => {
       </LinkContainer>
 
       <div>
-        <Header className="header-class">{title}</Header>
+        <Header>{title}</Header>
         <Attribution>
           <strong>By: </strong>
           {author}
