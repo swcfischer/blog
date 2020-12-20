@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 const arrivalTransition = keyframes`
   0% { opacity: 0}
   20% { transform: translate3d(-200%, 0, 0) scale3d(1.5, .5, 0); opacity: 0;}
-  100% { transform: translate3d(0px, 0, 0) scale3d(1,1, 0): opacity: 1;}
+  100% { transform: translate3d(0px, 0, 0) scale3d(1,1, 0); opacity: 1;}
 `
 
 export const CardContainer = styled.div`

@@ -167,7 +167,8 @@ export const NameContainer = styled.div`
   border-bottom: 3px solid #000;
   padding-left: 10px;
   padding-right: 30px;
-
+  display: flex;
+  align-items: center;
   a {
     position: relative;
     text-decoration: none;
