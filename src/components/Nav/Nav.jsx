@@ -89,7 +89,7 @@ export default class Nav extends Component {
                 <span>{'/>'}</span>
               </LogoFont>
             </Link>
-            <MenuIcon src="/menu.svg" onClick={this.handleClick} />
+            <MenuIcon onClick={this.handleClick} />
             <NavLinkContainer isAtTop={this.state.isAtTop}>
               <li>
                 <Link activeStyle={activeStyleObj} to="/">

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { BiMenu } from 'react-icons/bi'
 
 export const ParentContainer = styled.div`
   display: flex;
@@ -110,7 +111,7 @@ export const CloseButton = styled.span`
   cursor: pointer;
 `
 
-export const MenuIcon = styled.img`
+export const MenuIcon = styled(BiMenu)`
   transition: 0.3s;
   cursor: pointer;
   display: none;
