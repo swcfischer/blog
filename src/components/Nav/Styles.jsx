@@ -112,6 +112,7 @@ export const CloseButton = styled.span`
 `
 
 export const MenuIcon = styled(BiMenu)`
+  font-size: 28px;
   transition: 0.3s;
   cursor: pointer;
   display: none;
