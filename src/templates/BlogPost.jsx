@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import ReactTooltip from 'react-tooltip'
+import { FaAngleDoubleRight } from 'react-icons/fa'
 
 import {
   LinkContainer,
@@ -36,10 +37,7 @@ const BlogPost = props => {
         {leftLink ? (
           <Link className="left-link" to={leftLink} style={{ float: 'left' }}>
             <a data-tip data-for="leftIcon">
-              <LeftIconImage
-                src="/angle-double-right-solid.svg"
-                alt="navigate to previous article"
-              />
+              <LeftIconImage />
             </a>
             <ReactTooltip effect="solid" id="leftIcon">
               {leftLinkTitle}

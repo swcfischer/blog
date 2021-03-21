@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa'
 
 const fadeIn = keyframes`
   from {
@@ -46,7 +47,7 @@ export const LinkContainer = styled.div`
   }
 `
 
-export const RightIconImage = styled.img`
+export const RightIconImage = styled(FaAngleDoubleRight)`
   position: relative;
   top: 2px;
   width: 25px;
@@ -58,12 +59,11 @@ export const RightIconImage = styled.img`
     top: 4px;
   }
 `
-export const LeftIconImage = styled.img`
+export const LeftIconImage = styled(FaAngleDoubleLeft)`
   position: relative;
   top: 2px;
   width: 25px;
   height: 28px;
-  transform: rotate(180deg);
   left: -4px;
 
   @media (max-width: 740px) {
