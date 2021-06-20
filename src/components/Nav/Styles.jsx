@@ -48,8 +48,12 @@ export const NavLinkContainer = styled.ul`
 `
 
 export const ShrunkenMenu = styled.ul`
-  border-left: 3px solid #111;
-  background: linear-gradient(to bottom, #263238 0%, #607d8b 100%);
+  border-left: 3px solid var(--footer-seperator);
+  background: linear-gradient(
+    to bottom,
+    var(--nav-dark) 0%,
+    var(--nav-light) 100%
+  );
   transform: ${props =>
     props.isClicked ? 'translate(0,0)' : 'translate(150vw, 0)'};
   position: fixed;
@@ -77,7 +81,7 @@ export const ShrunkenMenuLink = styled.li`
   margin: 15px;
   font-size: 22px;
   border: none;
-  color: #000;
+  color: var(--misc-black);
   font-weight: 100;
   transform: ${props =>
     props.isClicked ? 'translateX(0px)' : 'translateX(600px)'};
@@ -88,7 +92,7 @@ export const ShrunkenMenuLink = styled.li`
     font-style: italic;
     padding: 10px;
     transition: 0.4s all ease;
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
   }
 
@@ -100,7 +104,7 @@ export const ShrunkenMenuLink = styled.li`
 
 export const CloseButton = styled.span`
   position: fixed;
-  color: #fff;
+  color: var(--text);
   padding: 5px;
   top: 0px;
   right: 140px;
@@ -126,11 +130,11 @@ export const LogoFont = styled.span`
   font-weight: 100;
   font-style: italic;
   font-size: ${props => (props.isAtTop ? '40px' : '30px')};
-  color: #fff;
+  color: var(--text);
   padding-left: 40px;
   font-family: 'Allerta Stencil', sans-serif;
   span {
-    color: #000;
+    color: var(--misc-black);
   }
 
   @media (max-width: 740px) {
@@ -146,16 +150,24 @@ export const NavBar = styled.nav`
   width: 100vw;
   z-index: 10;
   transition: 0.3s;
-  background-image: linear-gradient(15deg, #263238 0%, #607d8b 100%);
-  border-top: 3px solid #000;
-  border-bottom: 3px solid #000;
+  background-image: linear-gradient(
+    15deg,
+    var(--nav-dark) 0%,
+    var(--nav-light) 100%
+  );
+  border-top: 3px solid var(--misc-black);
+  border-bottom: 3px solid var(--misc-black);
   -webkit-box-shadow: 0px 10px 4px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 4px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 4px -9px rgba(0, 0, 0, 0.75);
 `
 
 export const NameContainer = styled.div`
-  background: linear-gradient(to right, #263238 0%, #607d8b 100%);
+  background: linear-gradient(
+    to right,
+    var(--nav-dark) 0%,
+    var(--nav-light) 100%
+  );
   transition: 0.3s;
   font-size: ${props => (props.isAtTop ? '50px' : '35px')};
   font-weight: 100;
@@ -164,7 +176,7 @@ export const NameContainer = styled.div`
   height: 100%;
   top: 0;
   right: 0;
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid var(--misc-black);
   padding-left: 10px;
   padding-right: 30px;
   display: flex;
@@ -172,7 +184,7 @@ export const NameContainer = styled.div`
   a {
     position: relative;
     text-decoration: none;
-    color: #fff;
+    color: var(--text);
   }
   @media (max-width: 1100px) {
     display: none;
@@ -182,7 +194,7 @@ export const Triangle = styled.div`
   transition: 0.3s;
   position: absolute;
   border: 12px solid transparent;
-  border-right: 12px solid #263238;
+  border-right: 12px solid var(--nav-dark);
   position: absolute;
   top: ${props => (props.isAtTop ? '19px' : '11px')};
   left: ${props => (props.isAtTop ? '-47px' : '-38px')};

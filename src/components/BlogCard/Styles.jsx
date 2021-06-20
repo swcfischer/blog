@@ -14,11 +14,11 @@ const arrivalTransition = keyframes`
 export const CardContainer = styled.div`
   position: relative;
   flex-direction: column;
-  background: #fff;
-  color: #000;
+  background: var(--background);
+  color: var(--black-text);
   max-width: 600px;
   margin: 30px auto;
-  border: 3px solid #37474f;
+  border: 3px solid var(--card-border);
   border-radius: 3px;
   min-height: 200px;
   font-family: Merriweather, serif;
@@ -44,9 +44,9 @@ export const CardContainer = styled.div`
     font-weight: 100;
     position: absolute;
     right: 10px;
-    border: 2px solid #000;
-    background: #455a64;
-    color: #fff;
+    border: 2px solid var(--misc-black);
+    background: var(--card-tag);
+    color: var(--text);
     padding: 10px 0px;
     width: 80px;
     transition: 0.3s all ease;
@@ -75,7 +75,7 @@ export const HeaderContainer = styled.h1`
   align-self: center;
   font-size: 36px;
   font-style: italic;
-  color: goldenrod;
+  color: var(--card-h1-color);
   @media (max-width: 520px) {
     margin-top: 30px;
     font-size: 30px;
@@ -85,19 +85,18 @@ export const HeaderContainer = styled.h1`
 export const DateContainer = styled.div`
   padding: 10px 0 0 25px;
   align-self: flex-start;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--card-date-color);
   text-align: left;
 `
 
 export const DescriptionContainer = styled.div`
   padding: 10px 25px 10px 25px;
   align-self: flex-start;
-  color: #000;
+  color: var(--black-text);
   text-align: left;
 `
 export const TagsContainer = styled.div`
   display: flex;
-  color: #000;
 `
 
 export const Tag = styled.div`
@@ -106,7 +105,7 @@ export const Tag = styled.div`
   margin: 5px 0px 5px 5px;
   display: inline-block;
   align-self: flex-start;
-  background: #263238;
-  color: #fff;
+  background: var(--card-tag-bg);
+  color: var(--text);
   font-weight: 100;
 `

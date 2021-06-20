@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import ThemeToggler from './ThemeToggler'
 
 import {
   Parent,
@@ -26,6 +27,7 @@ export default class Nav extends Component {
     this.state = {
       isAtTop: true,
       isClicked: false,
+      isDarkMode: false,
     }
   }
 
@@ -109,6 +111,7 @@ export default class Nav extends Component {
                 </a>
               </li>
             </NavLinkContainer>
+            {/* <ThemeToggler /> */}
             <NameContainer isAtTop={this.state.isAtTop}>
               <Triangle isAtTop={this.state.isAtTop} />
               <a href="https://stevefischer.dev">Steve Fischer</a>

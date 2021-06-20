@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const BlogCardContainer = styled.div`
   margin-bottom: 30px;
   & + & {
-    border-top: 5px double #305161;
+    border-top: 5px double var(--card-border);
   }
 `
 

@@ -35,7 +35,7 @@ export const LinkContainer = styled.div`
   }
 
   a {
-    color: #000;
+    color: var(--misc-black);
     text-decoration: none;
     font-weight: bold;
     font-style: italic;
@@ -78,7 +78,7 @@ export const BlogContainer = styled.div`
   color: #000;
   p:first-of-type {
     .dropcap {
-      color: #263238;
+      color: var(--drop-cap);
       float: left;
       font-size: 4.5rem;
       line-height: 3rem;
@@ -117,16 +117,16 @@ export const BlogContainer = styled.div`
   }
 
   h1 {
-    color: #1f2325;
+    color: var(--blog-post-header);
     text-align: center;
-    border-bottom: 2px solid rgb(38, 50, 56);
+    border-bottom: 2px solid var(--h1-border-color);
     padding-bottom: 5px;
     margin: 45px 0;
   }
 
   h2 {
-    color: #1f2325;
-    border-bottom: 2px solid rgb(38, 50, 56);
+    color: var(--blog-post-header);
+    border-bottom: 2px solid var;
     padding-bottom: 5px;
     margin: 45px 0;
   }
@@ -146,10 +146,10 @@ export const Header = styled.h1`
   max-width: 750px;
   font-weight: bold;
   padding: 0px 0px 5px 0px;
-  border-bottom: 4px dashed goldenrod;
+  border-bottom: 4px dashed var(--card-h1-color);
   @media (max-width: 760px) {
     font-size: 32px;
-    border-bottom: 3px dashed goldenrod;
+    border-bottom: 3px dashed var(--card-h1-color);
   }
 `
 
@@ -159,7 +159,7 @@ export const Attribution = styled.div`
   text-align: center;
   max-width: 750px;
   margin: 0 auto;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.75);
   font-style: italic;
 `
 export const AvatarContainer = styled.div`

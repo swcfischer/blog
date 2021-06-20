@@ -41,7 +41,7 @@ const BlogPost = props => {
                 alt="navigate to previous article"
               />
             </a>
-            <ReactTooltip effect="solid" id="leftIcon">
+            <ReactTooltip className="tooltip" effect="solid" id="leftIcon">
               {leftLinkTitle}
             </ReactTooltip>
           </Link>
@@ -61,7 +61,7 @@ const BlogPost = props => {
                 alt="navigate to next article"
               />
             </a>
-            <ReactTooltip effect="solid" id="rightIcon">
+            <ReactTooltip className="tooltip" effect="solid" id="rightIcon">
               {rightLinkTitle}
             </ReactTooltip>
           </Link>
@@ -72,10 +72,7 @@ const BlogPost = props => {
 
       <div>
         <Header>{title}</Header>
-        <Attribution>
-          <strong>By: </strong>
-          {author}
-        </Attribution>
+        <Attribution>By {author}</Attribution>
         <AvatarContainer>
           <Img fixed={props.data.file.childImageSharp.fixed} />
         </AvatarContainer>
@@ -87,7 +84,11 @@ const BlogPost = props => {
             <a data-tip data-for="leftBottomLink">
               <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
             </a>
-            <ReactTooltip effect="solid" id="leftBottomLink">
+            <ReactTooltip
+              className="tooltip"
+              effect="solid"
+              id="leftBottomLink"
+            >
               {leftLinkTitle}
             </ReactTooltip>
           </Link>
@@ -104,7 +105,11 @@ const BlogPost = props => {
             <a data-tip data-for="rightBottomLink">
               <RightIconImage src="/angle-double-right-solid.svg" alt="" />
             </a>
-            <ReactTooltip id="rightBottomLink" effect="solid">
+            <ReactTooltip
+              className="tooltip"
+              id="rightBottomLink"
+              effect="solid"
+            >
               {rightLinkTitle}
             </ReactTooltip>
           </Link>

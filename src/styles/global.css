@@ -6,10 +6,49 @@ html {
   -webkit-text-size-adjust: 100%;
   padding: 0;
   margin: 0;
+  background: #263238;
 }
 body {
   margin: 0 !important;
   padding: 0 !important;
   outline: none;
-  background: #fff;
+
+  --nav-dark: #263238;
+  --nav-light: #607d8b;
+
+  --text: #fff;
+  --misc-black: #000;
+  --background: #fff;
+  --black-text: #000;
+
+  --footer-bg: #263238;
+  --footer-text-color: #c2d4cc;
+  --footer-seperator: #111;
+
+  --card-border: #37474f;
+  --card-tag: #455a64;
+  --card-tag-bg: #263238;
+  --card-h1-color: goldenrod;
+  --card-date-color: rgba(0, 0, 0, 0.6);
+
+  --drop-cap: #263238;
+  --blog-post-header: #1f2325;
+  --h1-border-color: #rgb(38, 50, 56);
+}
+
+/* body.dark {
+  --card-h1-color: #ebf4f4;
+  --background: #263238;
+  --black-text: rgb(237, 245, 244);
+  --card-border: #171818;
+  --card-tag-bg: #1c2428;
+  --card-date-color: rgb(122, 138, 143);
+} */
+
+body {
+  background: var(--background);
+}
+
+.tooltip {
+  background: var(--misc-black) !important;
 }
