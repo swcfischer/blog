@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import ThemeToggler from './ThemeToggler'
+// import ThemeToggler from './ThemeToggler'
 
 import {
   Parent,
