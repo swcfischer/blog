@@ -11,20 +11,15 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, '.md'],
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-dark-mode',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-          },
-          { resolve: 'gatsby-remark-dropcap' },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

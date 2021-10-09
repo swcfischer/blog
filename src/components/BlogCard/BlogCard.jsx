@@ -11,18 +11,22 @@ import {
 } from './Styles'
 
 export default function BlogCard({ node, idx }) {
-  const { frontmatter, fields } = node.node
+  const {
+    frontmatter: { tags, date, description, title },
+    fields: { slug },
+  } = node
+
   return (
-    <Link to={`/${fields.slug}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/${slug}`} style={{ textDecoration: 'none' }}>
       <CardContainer key={idx} idx={idx}>
         <TagsContainer>
-          {frontmatter.tags.map((tag, i) => (
+          {tags.map((tag, i) => (
             <Tag key={i}>{tag}</Tag>
           ))}
         </TagsContainer>
-        <HeaderContainer>{frontmatter.title}</HeaderContainer>
-        <DateContainer>{frontmatter.date}</DateContainer>
-        <DescriptionContainer>{frontmatter.description}</DescriptionContainer>
+        <HeaderContainer>{title}</HeaderContainer>
+        <DateContainer>{date}</DateContainer>
+        <DescriptionContainer>{description}</DescriptionContainer>
       </CardContainer>
     </Link>
   )

@@ -1,146 +1,49 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import ReactTooltip from 'react-tooltip'
-import { FaAngleDoubleRight } from 'react-icons/fa'
 
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+
+import Layout from '../components/layout'
 import {
   LinkContainer,
   LeftIconImage,
   RightIconImage,
   Header,
   Attribution,
-  AvatarContainer,
+  Avatar,
   BlogContainer,
 } from './Styles.jsx'
 
-const BlogPost = props => {
+const BlogPostMdx = props => {
+  const { pageContext } = props
   const {
-    rightLink,
-    leftLink,
-    leftLinkTitle,
-    rightLinkTitle,
-  } = props.pageContext
-
-  const post = props.data.markdownRemark
-
-  const {
-    html,
+    body,
     frontmatter: { title, author },
-  } = post
+  } = props.data.mdx
 
   return (
     <Layout>
-      <LinkContainer>
-        {leftLink ? (
-          <Link className="left-link" to={leftLink} style={{ float: 'left' }}>
-            <a data-tip data-for="leftIcon">
-              <LeftIconImage />
-            </a>
-            <ReactTooltip className="tooltip" effect="solid" id="leftIcon">
-              {leftLinkTitle}
-            </ReactTooltip>
-          </Link>
-        ) : (
-          <div />
-        )}
-        <div></div>
-        {rightLink ? (
-          <Link
-            className="right-link"
-            style={{ float: 'right' }}
-            to={rightLink}
-          >
-            <a data-tip data-for="rightIcon">
-              <RightIconImage
-                src="/angle-double-right-solid.svg"
-                alt="navigate to next article"
-              />
-            </a>
-            <ReactTooltip className="tooltip" effect="solid" id="rightIcon">
-              {rightLinkTitle}
-            </ReactTooltip>
-          </Link>
-        ) : (
-          <div />
-        )}
-      </LinkContainer>
-
-      <div>
-        <Header>{title}</Header>
-        <Attribution>By {author}</Attribution>
-        <AvatarContainer>
-          <Img fixed={props.data.file.childImageSharp.fixed} />
-        </AvatarContainer>
-        <BlogContainer dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
-      <LinkContainer>
-        {leftLink ? (
-          <Link to={leftLink} style={{ float: 'left' }} className="left-link">
-            <a data-tip data-for="leftBottomLink">
-              <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
-            </a>
-            <ReactTooltip
-              className="tooltip"
-              effect="solid"
-              id="leftBottomLink"
-            >
-              {leftLinkTitle}
-            </ReactTooltip>
-          </Link>
-        ) : (
-          <div />
-        )}
-        <div></div>
-        {rightLink ? (
-          <Link
-            to={rightLink}
-            className="right-link"
-            style={{ float: 'right' }}
-          >
-            <a data-tip data-for="rightBottomLink">
-              <RightIconImage src="/angle-double-right-solid.svg" alt="" />
-            </a>
-            <ReactTooltip
-              className="tooltip"
-              id="rightBottomLink"
-              effect="solid"
-            >
-              {rightLinkTitle}
-            </ReactTooltip>
-          </Link>
-        ) : (
-          <div />
-        )}
-      </LinkContainer>
+      <LinkRow {...pageContext} />
+      <Header>{title}</Header>
+      <Attribution>By {author}</Attribution>
+      <Avatar fixed={props.data.file.childImageSharp.fixed} />
+      <BlogContainer>
+        <MDXRenderer>{body}</MDXRenderer>
+      </BlogContainer>
+      <LinkRow {...pageContext} />
     </Layout>
   )
 }
 
-export default BlogPost
+export default BlogPostMdx
 
 export const query = graphql`
   query($slug: String!) {
-    allMarkdownRemark {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       frontmatter {
         title
         author
@@ -158,3 +61,32 @@ export const query = graphql`
     }
   }
 `
+const LinkRow = props => {
+  const { leftLink, leftLinkTitle, rightLink, rightLinkTitle } = props
+
+  return (
+    <LinkContainer>
+      {leftLink && (
+        <Link to={leftLink} className="left-link">
+          <a data-tip data-for="leftBottomLink">
+            <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
+          </a>
+          <ReactTooltip className="tooltip" effect="solid" id="leftBottomLink">
+            {leftLinkTitle}
+          </ReactTooltip>
+        </Link>
+      )}
+
+      {rightLink && (
+        <Link to={rightLink} className="right-link">
+          <a data-tip data-for="rightBottomLink">
+            <RightIconImage src="/angle-double-right-solid.svg" alt="" />
+          </a>
+          <ReactTooltip className="tooltip" id="rightBottomLink" effect="solid">
+            {rightLinkTitle}
+          </ReactTooltip>
+        </Link>
+      )}
+    </LinkContainer>
+  )
+}
