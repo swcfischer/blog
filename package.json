@@ -34,7 +34,8 @@
     "react-toggle-dark-mode": "^1.0.4",
     "react-tooltip": "^4.2.5",
     "react-typography": "^0.16.13",
-    "styled-components": "^4.1.1"
+    "styled-components": "^4.1.1",
+    "typewriter-effect": "^2.18.2"
   },
   "keywords": [
     "gatsby"

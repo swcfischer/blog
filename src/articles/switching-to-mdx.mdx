@@ -1,0 +1,120 @@
+---
+title: 'Switching to MDX'
+date: '2021-10-09'
+description: 'I switched this blog from markdown to MDX allowing me to use React components in my blog posts.'
+author: Steve Fischer
+tags: ['MDX', 'Gatsby', 'React']
+image: 'https://images.pexels.com/photos/2156/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&dpr=2&h=432&w=640'
+---
+
+import Typewriter from 'typewriter-effect'
+
+<h1>
+  <Typewriter
+    options={{ cursor: '' }}
+    onInit={typewriter => {
+      typewriter.typeString('I can now use React in my markdown!').start()
+    }}
+  />
+</h1>
+
+It may not sound groundbreaking to you, but it is a big deal to me!
+
+Previously, I was using `.md` files and running them through a Gatsby Plugin called `gatsby-transformer-remark` that I configured in my `gatsby-config.js` file.
+
+In the configuration object, I was able to pass in other plugins. This was how I rendered my code samples and my dropcap that was at the beginning of each article.
+
+```js
+module.exports = {
+  // Omitted code
+  plugins: [
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        extensions: ['.md'],
+        plugins: ['gatsby-remark-prismjs', 'gatsby-remark-dropcap'],
+      },
+    },
+    // Omitted code
+  ],
+}
+```
+
+This worked well for quite a while -- thatis, until I saw Josh Comeau's [blog](https://www.joshwcomeau.com/).
+
+In his blog, Josh took full advantage of MDX's capabilities. Each article had great custom components that served as examples for what he was writing about.
+
+I was astonished and envious at the same time! Josh even used `react-spring` in his examples, allowing the user to interact with animations.
+
+> I could write multiple blog posts about Josh's blog.
+
+---
+
+In my case, I simply replaced my `gatsby-transformer-remark` object in my config with `gatsby-plugin-mdx`.
+
+However, that was not all.
+
+I also had to set up the `MdxProvider` in my `gatsby-browser.js` file, so that it wrapper my root element.
+
+To do this, I made use of API for `gatsby-browser.js`, which allows you to export various handler functions.
+
+The one I made use of was `wrapRootElement`, which was a function that wrapped the `children` in the `MdxProvider`.
+
+```jsx
+export const wrapPageElement = ({ element }) => {
+  return <MDXProvider components={component}>{element}</MDXProvider>
+}
+```
+
+The other aspect of the above code in the `components` prop. The components prop is the most complex part of the setup. And it allows me to do syntax highlighting, like what you see above.
+
+Each code block is really a `pre` HTML tag, which MDX allows you to customize.
+
+This is where I made use of another library called `prism-react-renderer`.
+
+This library gave me a component for sytax highlighting.
+
+The code attribute on the `Highlight` component gets parsed and passed renderProps function inside the component.
+
+This allows me to define my own `Pre` tag using `styled-components`, so that I can add some padding and font-size to my syntax highlighting.
+
+```jsx
+const component = {
+  pre: props => {
+    const className = props.children.props.className || ''
+    const matches = className.match(/language-(?<lang>.*)/)
+    return (
+      <Highlight
+        {...defaultProps}
+        theme={theme}
+        code={props.children.props.children}
+        language={
+          matches && matches.groups && matches.groups.lang
+            ? matches.groups.lang
+            : ''
+        }
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <Pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </Pre>
+        )}
+      </Highlight>
+    )
+  },
+}
+```
+
+Each token is a line and each different piece of syntax highlighting is a span.
+
+Helper functions are provided to pass in the proper props to each html elment.
+
+The result is syntax highlighting that looks exactly like what I had before.
+
+But now, I can render React, too!!!

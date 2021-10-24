@@ -17,22 +17,14 @@ export const LinkContainer = styled.div`
   position: relative;
   height: 32px;
 
-  .left-link {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
-  .right-link {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-  }
-
   .__react_component_tooltip:not(.show) {
     opacity: 0;
     animation: ${fadeIn} 0.25s linear;
     animation-delay: 1s;
     animation-fill-mode: forwards;
+  }
+  .__react_component_tooltip.show {
+    z-index: 9999999;
   }
 
   a {
@@ -111,10 +103,13 @@ export const BlogContainer = styled.div`
   }
 
   code {
-    background: #222;
-    border-radius: 3px;
-    color: #fff;
     padding: 2px;
+    font-size: 1rem;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    color: rgb(248, 248, 242);
+    background-color: rgb(39, 40, 34);
+    border-radius: 3px;
+    word-break: keep-all;
   }
 `
 export const Header = styled.h1`

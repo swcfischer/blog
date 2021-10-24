@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
+import Helmet from 'react-helmet'
 
-import { graphql } from 'gatsby'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/layout'
@@ -17,14 +17,32 @@ import {
 } from './Styles.jsx'
 
 const BlogPostMdx = props => {
-  const { pageContext } = props
   const {
-    body,
-    frontmatter: { title, author },
-  } = props.data.mdx
+    pageContext,
+    data: {
+      mdx: {
+        body,
+        frontmatter: { title, author, description, tags, image },
+      },
+    },
+  } = props
 
   return (
     <Layout>
+      <Helmet
+        title={`${title} - ${author}`}
+        meta={[
+          {
+            name: 'description',
+            content: description,
+          },
+          {
+            name: 'image',
+            content: image || 'stevefischer.dev/favicon.ico',
+          },
+          { name: 'keywords', content: tags.join(' ') },
+        ]}
+      />
       <LinkRow {...pageContext} />
       <Header>{title}</Header>
       <Attribution>By {author}</Attribution>
@@ -47,6 +65,9 @@ export const query = graphql`
       frontmatter {
         title
         author
+        description
+        tags
+        image
       }
     }
 
@@ -67,7 +88,10 @@ const LinkRow = props => {
   return (
     <LinkContainer>
       {leftLink && (
-        <Link to={leftLink} className="left-link">
+        <Link
+          to={leftLink}
+          style={{ position: 'absolute', top: '0px', left: '0px' }}
+        >
           <a data-tip data-for="leftBottomLink">
             <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
           </a>
@@ -78,7 +102,10 @@ const LinkRow = props => {
       )}
 
       {rightLink && (
-        <Link to={rightLink} className="right-link">
+        <Link
+          to={rightLink}
+          style={{ position: 'absolute', top: '0px', right: '0px' }}
+        >
           <a data-tip data-for="rightBottomLink">
             <RightIconImage src="/angle-double-right-solid.svg" alt="" />
           </a>

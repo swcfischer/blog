@@ -50,6 +50,18 @@ body {
   background: var(--background);
 }
 
+pre {
+  text-align: left;
+  margin: 1em 0px;
+  padding: 1.5rem;
+  border-radius: 3px;
+  overflow: auto;
+  font-size: 1rem;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  color: rgb(248, 248, 242);
+  background-color: rgb(39, 40, 34);
+}
+
 .tooltip {
   background: var(--misc-black) !important;
 }

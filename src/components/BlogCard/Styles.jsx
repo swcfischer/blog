@@ -11,7 +11,7 @@ const arrivalTransition = keyframes`
   }
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.article`
   position: relative;
   flex-direction: column;
   background: var(--background);
