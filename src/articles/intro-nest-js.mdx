@@ -1,0 +1,112 @@
+---
+title: 'Introduction to Nest js'
+date: '2021-12-24'
+description: Nest js is a backend framework in Node.js that uses Typescript decorators, bringing about a well-defined architecture.
+author: Steve Fischer
+tags: ['Nest', 'Node.js']
+image: 'https://images.pexels.com/photos/2156/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&dpr=2&h=432&w=640'
+---
+
+import Typewriter from 'typewriter-effect'
+
+<h1>
+  <Typewriter
+    options={{ cursor: '' }}
+    onInit={typewriter => {
+      typewriter.typeString('Merry Christmas!!!').start()
+    }}
+  />
+</h1>
+
+🎄 Nest is a backend framework that is heavily inspired by Angular (a frontend Javascript framework from Google).
+
+Nest uses Typescript decorators to add features to your endpoints. Below is an example of a controller. I have added comments to the code to explain the logic.
+
+Keep in mind the `@` sign in `@Controller()` denotes a decorator, which associates classes with required metadata, in this case, enabling Nest to create a routing map.
+
+```tsx
+// The Controller decorator declares this class as a controller
+// and can recieve a string, which will be added to the endpoint path
+@Controller('users')
+export class UserController {
+  // The below syntax of private readonly userService,
+  // is a shorthand for dependency injection
+  // this is part of inversion of controll (IOC).
+  constructor(private readonly usersService: UsersService) {}
+  // The @ sign denotes a decorator, @Patch,
+  // in this case we are making this route handler only accept
+  // the PATCH http verb
+  // and we have added a dynamic path parameter to the route
+  // PATCH /users/1, e.g.
+  @Patch(':id')
+  // Here we are using another decorator
+  // to grab the path param @Param.
+  // We are also using a DTO, data transfer object to
+  // parse the body of the response.
+  // We than pass our data to our userService method,
+  // which contains the business logic
+  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    return this.usersService.update(+id, updateUserDto);
+  }
+```
+
+Nest claims to solve the problem of Node.js architecture.
+
+As someone who has worked on several Express backends, I agree that the architecture varies greatly.
+
+# Scaffolding
+
+Nest also provides scaffolding functions, which greatly assist in quickly creating a CRUD API.
+
+Nest also handles other types of APIs, but we are only covering REST APIs in this article.
+
+`nest generate resource articles` is a scaffolding command that will create a folder in your `src` of articles, containing all the boilerplate code for an articles CRUD endpoint.
+
+# Database
+
+Nest recommended ORM is TypeOrm, which also uses decorators.
+
+`npm i typeorm @nestjs/typeorm` will install both TypeOrm and the code required to use TypeOrm in Nest.
+
+In Nest, you create an Entity class, which you pass in to your TypeOrm config object.
+
+Below is an example of our App module, where we configure our ORM and pass in our UsersModule.
+
+```tsx
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'db.sqlite',
+      entities: [User],
+      synchronize: true,
+    }),
+    UsersModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+```
+
+# Entities
+
+Below is our User entity, which defines our User table in TypeOrm.
+
+```tsx
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number
+
+  @Column({ unique: true })
+  username: string
+
+  @Column()
+  password: string
+
+  @Column()
+  secretWord: string
+}
+```

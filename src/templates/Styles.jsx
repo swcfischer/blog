@@ -93,6 +93,7 @@ export const BlogContainer = styled.div`
     border-bottom: 2px solid var(--h1-border-color);
     padding-bottom: 5px;
     margin: 45px 0;
+    font-style: italic;
   }
 
   h2 {

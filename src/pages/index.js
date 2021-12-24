@@ -12,12 +12,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <LayoutInnerContainer>
-        {allMdx &&
-          allMdx?.nodes?.map((node, idx) => (
-            <BlogCardContainer key={idx}>
-              <BlogCard idx={idx} node={node} />
-            </BlogCardContainer>
-          ))}
+        {allMdx?.nodes?.map((node, idx) => (
+          <BlogCardContainer key={idx}>
+            <BlogCard idx={idx} node={node} />
+          </BlogCardContainer>
+        ))}
       </LayoutInnerContainer>
     </Layout>
   )

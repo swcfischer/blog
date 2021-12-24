@@ -2,7 +2,7 @@ import React from 'react'
 import ReactTooltip from 'react-tooltip'
 import Helmet from 'react-helmet'
 
-import { graphql, Link } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/layout'
@@ -43,7 +43,7 @@ const BlogPostMdx = props => {
           { name: 'keywords', content: tags.join(' ') },
         ]}
       />
-      <LinkRow {...pageContext} />
+      <LinkRow isTop {...pageContext} />
       <Header>{title}</Header>
       <Attribution>By {author}</Attribution>
       <Avatar fixed={props.data.file.childImageSharp.fixed} />
@@ -83,36 +83,53 @@ export const query = graphql`
   }
 `
 const LinkRow = props => {
-  const { leftLink, leftLinkTitle, rightLink, rightLinkTitle } = props
+  const { leftLink, leftLinkTitle, rightLink, rightLinkTitle, isTop } = props
+
+  const leftId = isTop ? 'leftTopLink' : 'leftBottomLink'
+  const rightId = isTop ? 'rightTopLink' : 'rightBottomLink'
 
   return (
     <LinkContainer>
       {leftLink && (
-        <Link
-          to={leftLink}
-          style={{ position: 'absolute', top: '0px', left: '0px' }}
-        >
-          <a data-tip data-for="leftBottomLink">
+        <>
+          <a
+            style={{
+              position: 'absolute',
+              top: '0px',
+              left: '0px',
+              cursor: 'pointer',
+            }}
+            onClick={() => navigate(leftLink)}
+            data-tip
+            data-for={leftId}
+          >
             <LeftIconImage src="/angle-double-right-solid.svg" alt="" />
           </a>
-          <ReactTooltip className="tooltip" effect="solid" id="leftBottomLink">
+          <ReactTooltip className="tooltip" effect="solid" id={leftId}>
             {leftLinkTitle}
           </ReactTooltip>
-        </Link>
+        </>
       )}
 
       {rightLink && (
-        <Link
-          to={rightLink}
-          style={{ position: 'absolute', top: '0px', right: '0px' }}
-        >
-          <a data-tip data-for="rightBottomLink">
+        <>
+          <a
+            style={{
+              position: 'absolute',
+              top: '0px',
+              right: '0px',
+              cursor: 'pointer',
+            }}
+            onClick={() => navigate(rightLink)}
+            data-tip
+            data-for={rightId}
+          >
             <RightIconImage src="/angle-double-right-solid.svg" alt="" />
           </a>
-          <ReactTooltip className="tooltip" id="rightBottomLink" effect="solid">
+          <ReactTooltip className="tooltip" id={rightId} effect="solid">
             {rightLinkTitle}
           </ReactTooltip>
-        </Link>
+        </>
       )}
     </LinkContainer>
   )

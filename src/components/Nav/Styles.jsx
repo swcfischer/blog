@@ -103,15 +103,16 @@ export const ShrunkenMenuLink = styled.li`
   }
 `
 
-export const CloseButton = styled.span`
+export const CloseButton = styled.button`
   position: fixed;
-  color: var(--text);
+  color: #000;
   padding: 5px;
   top: 0px;
   right: 140px;
-  font-size: 28px;
+  font-size: 38px;
   font-weight: 100;
-  transform: scale(1, 0.7);
+  background: transparent;
+  border: none;
   cursor: pointer;
 `
 

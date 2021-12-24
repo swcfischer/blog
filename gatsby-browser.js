@@ -11,7 +11,7 @@ const Pre = styled.pre`
   margin: 1em 0;
   padding: 1.5rem;
   border-radius: 3px;
-  overflow: scroll;
+  overflow: auto;
   font-size: 1rem;
   font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 

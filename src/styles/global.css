@@ -64,4 +64,9 @@ pre {
 
 .tooltip {
   background: var(--misc-black) !important;
+  color: #fff !important;
+}
+
+.tooltip.place-top::after {
+  border-top-color: #000 !important;
 }
