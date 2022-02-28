@@ -87,6 +87,8 @@ export const DateContainer = styled.div`
   align-self: flex-start;
   color: var(--card-date-color);
   text-align: left;
+  font-weight: bold;
+  font-size: 12px;
 `
 
 export const DescriptionContainer = styled.div`
