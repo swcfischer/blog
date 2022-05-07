@@ -27,7 +27,7 @@ export default function Footer() {
         <li>
           Created by{' '}
           <a
-            href="https://stevefischer.me/"
+            href="https://stevefischer.dev/"
             rel="noopener noreferrer"
             target="_blank"
           >

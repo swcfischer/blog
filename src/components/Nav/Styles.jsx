@@ -6,7 +6,7 @@ export const ParentContainer = styled.div`
   align-items: center;
   transition: 0.3s;
   overflow: visible;
-  height: ${props => (props.isAtTop ? '63px' : '44px')};
+  height: ${props => (props.isAtTop ? '63px' : '40px')};
   @media (max-width: 740px) {
     justify-content: space-between;
   }
@@ -199,7 +199,7 @@ export const Triangle = styled.div`
   border: 12px solid transparent;
   border-right: 12px solid var(--nav-dark);
   position: absolute;
-  top: ${props => (props.isAtTop ? '19px' : '11px')};
+  top: ${props => (props.isAtTop ? '19px' : '8px')};
   left: ${props => (props.isAtTop ? '-47px' : '-38px')};
   transform: ${props => (props.isAtTop ? 'scale(3.25)' : 'scale(2.25)')};
   @media (max-width: 1100px) {
