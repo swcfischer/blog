@@ -26,7 +26,8 @@ export const CardContainer = styled.article`
   -moz-box-shadow: 0px 10px 18px -9px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 18px -9px rgba(0, 0, 0, 0.75);
   transition-duration: 0.5s;
-  animation: ${arrivalTransition} ${props => 1.3 + 0.2 * props.idx}s
+  animation: ${arrivalTransition}
+    ${props => 1.3 + (props.idx > 3 ? 0.07 : 0.2) * props.idx}s
     cubic-bezier(0.41, -0.4, 0.12, 2);
   &:hover {
     bottom: 1px;

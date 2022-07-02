@@ -6,9 +6,7 @@ import { graphql } from 'gatsby'
 import BlogCard from '../components/BlogCard/BlogCard'
 import Layout from '../components/layout'
 
-const IndexPage = ({ data }) => {
-  const { allMdx } = data
-
+const IndexPage = ({ data: { allMdx }, ...rest }) => {
   return (
     <Layout>
       <LayoutInnerContainer>
