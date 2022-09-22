@@ -6,7 +6,7 @@ const arrivalTransition = keyframes`
     opacity: 0;
   }
   to { 
-    transform: translate3d(0px, 0, 0) scale3d(1,1, 0);
+    transform: translate3d(0px, 0, 0) scale3d(1,1, 0)
     opacity: 1;
   }
 `
