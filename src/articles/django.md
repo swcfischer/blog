@@ -6,7 +6,7 @@ author: Steve Fischer
 tags: ['Python', 'Backend']
 ---
 
-Python is a productive language. Although the language appears to be the work of one Dutchman who took a liking for the series Monty Python, the language has grown to a substantial size. It has a peculiar syntax that seems rather arbitrary.
+Python is a productive language. Although the language appears to be the work of one Dutchman who took a liking to the series Monty Python, the language has grown to a substantial size. It has a peculiar syntax that seems rather arbitrary.
 
 But once you dig into it, you find it sticks pretty well. :)
 
