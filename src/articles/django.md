@@ -1,20 +1,24 @@
 ---
-title: 'Django Framework'
-date: '2020-06-29'
-description: 'A Python web framework that has great conventions.'
+title: 'Django Part 1'
+date: '2022-10-01'
+description: 'A Python web framework that has everything out of the box.'
 author: Steve Fischer
 tags: ['Python', 'Backend']
 ---
 
-Python is a productive language. Although the language appears to be the work of one Dutchman who took a liking to the series Monty Python, the language has grown to a substantial size. It has a peculiar syntax that seems rather arbitrary.
+# Python is a productive, high-level language.
 
-But once you dig into it, you find it sticks pretty well. :)
+Although Python appears to be the work of one [Dutchman](https://gvanrossum.github.io/) -- who took a liking to the series Monty Python -- the language has become a popular choice for web development and programming in general.
 
-It has a rather interesting aspect in regard to functions: you can pass in arguments in order or name them. And you can spread these argument types into named variabals.
+Python has a peculiar syntax that seems arbitrary at first. But once you dig in, you find it easy to read and remember.
 
-### Now for Django, a fullstack Python framework.
+> It has a rather interesting aspect in regard to functions: you can pass in arguments in order -- or name them. And you can spread these argument types into named variables.
 
-To create an app using the scaffolding tool, type:
+There exist two popular web development frameworks for Python, the first is [Django](https://docs.djangoproject.com/en/4.1/), which I will be covering in this article and the second is [Flask](https://flask.palletsprojects.com/en/2.2.x/).
+
+# Django, a fullstack Python framework.
+
+After installing Django, create an app using the scaffolding tool:
 
 ```
 django-admin startproject your-proj-name
