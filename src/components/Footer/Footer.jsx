@@ -19,8 +19,12 @@ export default function Footer() {
         <li className="separator">|</li>
         <li>
           Hosted on{' '}
-          <a href="https://surge.sh/" rel="noopener noreferrer" target="_blank">
-            Surge
+          <a
+            href="https://www.netlify.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Netlify
           </a>
         </li>
         <li className="separator">|</li>
