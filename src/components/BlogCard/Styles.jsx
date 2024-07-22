@@ -90,6 +90,7 @@ export const DateContainer = styled.div`
   text-align: left;
   font-weight: bold;
   font-size: 12px;
+  font-family: monospace;
 `
 
 export const DescriptionContainer = styled.div`
