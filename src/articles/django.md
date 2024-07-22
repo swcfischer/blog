@@ -1,6 +1,6 @@
 ---
 title: 'Django Polls App'
-date: '2023-05-01'
+date: '2023-05-23'
 description: 'A simple polls app, showcasing Django in action!'
 author: Steve Fischer
 tags: ['Python', 'Backend']
