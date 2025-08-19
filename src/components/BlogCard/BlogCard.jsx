@@ -17,7 +17,7 @@ export default function BlogCard({ node, idx }) {
   } = node
 
   return (
-    <Link to={`/${slug}`} style={{ textDecoration: 'none' }}>
+    <Link to={slug} style={{ textDecoration: 'none' }}>
       <CardContainer key={idx} idx={idx}>
         <TagsContainer>
           {tags.map((tag, i) => (
