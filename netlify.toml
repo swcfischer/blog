@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "public/"
+
+[build.environment]
+  NODE_VERSION = "16.20.2"
+  NPM_FLAGS = "--legacy-peer-deps"
+  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
